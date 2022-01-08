@@ -5,13 +5,20 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 
-    <script src="./scripts/init-map.js"></script>
     <script src="./scripts/main.js"></script>
 
     <link rel="stylesheet" href="./weatherflow-map.css">
 
   </head>
   <body>
+    <div id="select-container">
+      <select name="Weather-options" id="Weather-options">
+        <option value="Temperature">Temperature</option>
+        <option value="Humidity">Humidity</option>
+        <option value="Perfection Index">Perfection Index</option>
+      </select>
+    </div>
+    
     <div id="map"></div>
 
     <script
