@@ -3,7 +3,8 @@
   <head>
     <title>Simple Map</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <!-- <script data-main="scripts/app" src="scripts/require.js"></script> -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
     <script src="./scripts/init-map.js"></script>
     <script src="./scripts/main.js"></script>
 
@@ -13,7 +14,6 @@
   <body>
     <div id="map"></div>
 
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly&channel=2"
       async
