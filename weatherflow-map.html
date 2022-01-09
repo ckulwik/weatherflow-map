@@ -11,12 +11,20 @@
 
   </head>
   <body>
-    <div id="select-container">
-      <select name="Weather-options" id="Weather-options">
-        <option value="Temperature">Temperature</option>
-        <option value="Humidity">Humidity</option>
-        <option value="Perfection Index">Perfection Index</option>
-      </select>
+    <div id="header-container">
+
+      <div id="select-container">
+        <select name="Weather-options" id="Weather-options">
+          <option value="Temperature">Temperature</option>
+          <option value="Humidity">Humidity</option>
+          <option value="Perfection Index">Perfection Index</option>
+        </select>
+      </div>
+
+      <div id="tooltip-trigger">
+        ? 
+        <span id="tooltip-content">Please hover over the markers to read the data values. The Perfection Index is a measure of how close the weather conditions are to perfect; 75 degrees and 35% humidity :) </span>
+      </div>
     </div>
     
     <div id="map"></div>

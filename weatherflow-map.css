@@ -9,6 +9,13 @@ body {
   padding: 0;
 }
 
+#header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 #select-container {
   display: flex;
   flex-direction: row;
@@ -20,4 +27,29 @@ select {
   padding: 10px;
   border-radius: 3px;
   border-color: grey;
+}
+
+#tooltip-trigger {
+  margin-left: 15px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+#tooltip-content {
+  border: 1px solid grey;
+  background: lightseagreen;
+  position: absolute;
+  left: 30px;
+  visibility: hidden;
+  z-index: 1;
+  padding: 10px;
+  border-radius: 3px;
+  width: 180px;
+}
+
+#tooltip-trigger:hover #tooltip-content {
+  visibility: visible;
 }

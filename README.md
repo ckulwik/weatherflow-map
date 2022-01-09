@@ -1,5 +1,9 @@
 # weatherflow-map
 
+## To run the application
+
+Clone it, run `npm i`, then open the html file in the browser.
+
 ## In case of CORS issue:
 
 I had to download a chrome extension to get around a CORS issue:
