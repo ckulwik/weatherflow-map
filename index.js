@@ -9,8 +9,11 @@ const PERFECTION_INDEX = "Perfection Index";
 const PERFECT_TEMP = 75;
 const PERFECT_HUMIDITY = 35;
 const NO_DATA = "No Data";
+const Q_MARK_URL =
+  "https://music-web-app-songs.s3.us-east-2.amazonaws.com/image843.png";
 
 let map;
+let markers = [];
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -26,8 +29,8 @@ function calculatePerfectionIndex(spot) {
     return NO_DATA;
   }
   const tempOffset = (temp / PERFECT_TEMP / PERFECT_TEMP) * 10;
-  const humidityOffset = humidity / PERFECT_HUMIDITY / PERFECT_HUMIDITY;
-  return ((1 - tempOffset - humidityOffset) * 100).toString();
+  const humidityOffset = (humidity / PERFECT_HUMIDITY / PERFECT_HUMIDITY) * 3;
+  return Math.round((1 - tempOffset - humidityOffset) * 100).toString() + "%";
 }
 
 function getPointData(spot, pointDataIndex) {
@@ -41,16 +44,24 @@ function getPointData(spot, pointDataIndex) {
 }
 
 function updatePoints(pointDataIndex) {
+  // remove any existing points
+  markers.forEach((marker) => {
+    marker.setMap(null);
+  });
+  markers = [];
+
   axios
     .get(REQ_URL)
     .then((response) => {
       response.data.spots.forEach((spot) => {
+        const pointData = getPointData(spot, pointDataIndex);
         let marker = new google.maps.Marker({
           position: { lat: spot.lat, lng: spot.lon },
-          title: getPointData(spot, pointDataIndex),
+          title: pointData,
           animation: google.maps.Animation.DROP,
-          // icon: confetti,
+          icon: pointData === NO_DATA ? Q_MARK_URL : "",
         });
+        markers.push(marker);
         marker.setMap(map);
       });
     })
