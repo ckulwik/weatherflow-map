@@ -1,5 +1,7 @@
 # weatherflow-map
 
+An application to show weather data in the Los Angeles area. Can toggle between temperature, humidity, and "perfection index" (a measure of how close the weather is to perfect).
+
 ## To run the application
 
 Clone it, run `npm i`, then open the html file in the browser.
